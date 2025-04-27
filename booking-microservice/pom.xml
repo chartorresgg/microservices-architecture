@@ -66,6 +66,15 @@
             <type>pom</type>
             <scope>import</scope>
         </dependency>
+		<dependencies>
+    <!-- Otras dependencias -->
+    <dependency>
+        <groupId>com.edu.poli.product_microservice</groupId>
+        <artifactId>product-microservice</artifactId>
+        <version>1.0.0</version> <!-- La versión del jar -->
+    </dependency>
+</dependencies>
+
 	</dependencies>
 
 	<build>

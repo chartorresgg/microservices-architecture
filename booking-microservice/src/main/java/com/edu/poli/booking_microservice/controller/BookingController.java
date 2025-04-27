@@ -33,13 +33,6 @@ public class BookingController {
         }
     }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
-        Booking createdBooking = bookingService.createBooking(booking);
-        return ResponseEntity.ok(createdBooking);
-    }
-
     @PutMapping("/{id}")
     public ResponseEntity<Booking> updateBooking(@PathVariable String id, @RequestBody Booking booking) {
         booking.setId(id);
@@ -59,6 +52,11 @@ public class BookingController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @PostMapping
+    public Booking createBooking(@RequestBody Booking booking, @RequestParam String productId) {
+        return bookingService.createBooking(booking, productId);
     }
 
 }
