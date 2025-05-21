@@ -7,8 +7,8 @@ import org.springframework.http.ResponseEntity;
 
 import com.edu.poli.booking_microservice.model.Booking;
 import com.edu.poli.booking_microservice.services.BookingService;
-
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/bookings")
@@ -41,6 +41,18 @@ public class BookingController {
             return ResponseEntity.ok(updatedBooking);
         } else {
             return ResponseEntity.notFound().build();
+        }
+    }
+
+    // ✅ NUEVO ENDPOINT para actualizar solo el estado
+    @PutMapping("/{id}/status")
+    public ResponseEntity<?> updateBookingStatus(@PathVariable String id, @RequestBody Map<String, String> payload) {
+        String newStatus = payload.get("status");
+        boolean updated = bookingService.updateBookingStatus(id, newStatus);
+        if (updated) {
+            return ResponseEntity.ok("Estado actualizado");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Reserva no encontrada");
         }
     }
 

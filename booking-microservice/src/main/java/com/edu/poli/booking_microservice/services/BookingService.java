@@ -9,6 +9,7 @@ import com.edu.poli.booking_microservice.clients.ProductClient;
 import com.edu.poli.booking_microservice.model.Booking;
 import com.edu.poli.booking_microservice.model.ProductResponse;
 import com.edu.poli.booking_microservice.repositories.BookingRepository;
+import java.util.Optional;
 
 @Service
 public class BookingService {
@@ -72,6 +73,17 @@ public class BookingService {
 
         // Guardar el booking en MySQL
         return bookingRepository.save(booking);
+    }
+
+    public boolean updateBookingStatus(String id, String newStatus) {
+        Optional<Booking> bookingOpt = bookingRepository.findById(id);
+        if (bookingOpt.isPresent()) {
+            Booking booking = bookingOpt.get();
+            booking.setStatus(newStatus);
+            bookingRepository.save(booking);
+            return true;
+        }
+        return false;
     }
 
 }
