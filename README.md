@@ -68,6 +68,15 @@ project-root/
 
 ---
 
+🎥 Video de Demostración
+
+Puedes ver el funcionamiento del sistema distribuido basado en microservicios en el siguiente video:  
+[🔗 Ver Video en YouTube](URL_DEL_VIDEO)
+
+Este video muestra la interacción entre los microservicios `Product`, `Booking` y `Payment`, la comunicación vía Eureka Server, y las pruebas funcionales realizadas mediante Postman.
+
+---
+
 ## ✅ Requisitos Previos
 
 - Java 17
@@ -153,7 +162,7 @@ Este proyecto es de propósito educativo. Si deseas contribuir o extender su fun
 
 ## 📅 Autor
 
-Desarrollado por \[Tu Nombre] para el curso de Desarrollo de Aplicaciones Web con enfoque en Arquitectura de Microservicios - 2025.
+Desarrollado por \[Carlos Guzmán Torres y Dana Yuredt Castro] para el curso de Ingeniería de Software II con del Politécnico Gracnolombiano - 2025.
 
 ---
 
