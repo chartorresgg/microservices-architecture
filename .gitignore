@@ -1,0 +1,44 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración local
+.vscode/
+.idea/
+*.iml
+
+# Compilados de Java
+target/
+out/
+build/
+
+# Archivos de logs
+*.log
+logs/
+
+# Configuración de OS
+*.swp
+*.swo
+
+# Dependencias descargadas por Maven o Gradle
+.mvn/
+.gradle/
+**/node_modules/
+
+# Archivos temporales
+*.class
+*.jar
+*.war
+*.ear
+
+# Archivos del IDE
+*.iws
+*.ipr
+
+# Archivos del entorno
+.env
+*.env
+
+# Otros (caches, backup, etc.)
+**/*~ 
+*.bak
