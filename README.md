@@ -73,7 +73,7 @@ Este repositorio contiene un sistema distribuido basado en **microservicios** de
 
 ---
 
-## 📂 Estructura del Proyect
+## 📂 Estructura del Proyecto
 
 ```
 project-root/
@@ -88,7 +88,7 @@ project-root/
 
 ---
 
-🎥 Video de Demostración
+## 🎥 Video de Demostración
 
 Puedes ver el funcionamiento del sistema distribuido basado en microservicios en el siguiente video:  
 https://www.youtube.com/watch?v=n5GrQooqtYk
