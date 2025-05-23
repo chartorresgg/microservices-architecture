@@ -72,8 +72,7 @@ project-root/
 
 🎥 Video de Demostración
 
-Puedes ver el funcionamiento del sistema distribuido basado en microservicios en el siguiente video:  
-[🔗 Ver Video en YouTube]((https://youtu.be/n5GrQooqtYk))
+Puedes ver el funcionamiento del sistema distribuido basado en microservicios en el siguiente video: https://www.youtube.com/watch?v=n5GrQooqtYk
 
 Este video muestra la interacción entre los microservicios `Product`, `Booking` y `Payment`, la comunicación vía Eureka Server, y las pruebas funcionales realizadas mediante Postman.
 
