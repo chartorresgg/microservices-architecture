@@ -7,7 +7,7 @@ Este repositorio contiene un sistema distribuido basado en **microservicios** de
 - Arquitectura basada en **microservicios**.
 - Registro y descubrimiento de servicios con **Eureka Server**.
 - Persistencia de datos con **MongoDB** y **MySQL**.
-- Integración con servicio externo de pagos simulado (API externa).
+- Integración con servicio de API externo de pagos simulado en Stripe: https://dashboard.stripe.com
 - Comunicación entre servicios mediante **REST APIs**.
 - Desplegado en entorno local usando **Java 17**, **Maven** y **Spring Boot**.
 
