@@ -22,21 +22,22 @@ Este repositorio contiene un sistema distribuido basado en **microservicios** de
 
 ### 2. Product-Microservice
 
-- CRUD de productos.
+- **CRUD** de productos.
 - Persistencia en **MongoDB**.
 - Endpoints REST para gestión de productos.
 
 ### 3. Booking-Microservice
 
-- Creación y consulta de reservas.
-- Validación de disponibilidad con Product-Service.
+- **CRUD** de bookings/reservas de compra.
+- Validación de disponibilidad con **Product-Service:** Las órdenes son creadas, solamente si el id del producto existe.
 - Persistencia en **MySQL**.
 
 ### 4. Payment-Microservice
 
-- Procesamiento de pagos para reservas.
-- Conexión con una API de pagos externa (mock/simulada).
-- Validación del estado de transacciones.
+- Creación, consulta y eliminaación de pagos para reservas o bookings.
+- Persistencia en **MySQL**.
+- Conexión con la **API de pagos externa** de Stripe.
+- Validación del estado de transacciones: Una orden creada actualizará su status a "pagado" si el paymenta apunta a dicha orden.
 
 ---
 
@@ -51,7 +52,7 @@ Este repositorio contiene un sistema distribuido basado en **microservicios** de
 | Gestor de dependencias | Maven                             |
 | Control de versiones   | Git                               |
 | IDE                    | Visual Studio Code                |
-
+  
 ---
 
 ## 📂 Estructura del Proyecto
@@ -59,6 +60,7 @@ Este repositorio contiene un sistema distribuido basado en **microservicios** de
 ```
 project-root/
 ├── discovery-service/
+├── doc
 ├── product-microservice/
 ├── booking-microservice/
 ├── payment-microservice/
@@ -71,7 +73,7 @@ project-root/
 🎥 Video de Demostración
 
 Puedes ver el funcionamiento del sistema distribuido basado en microservicios en el siguiente video:  
-[🔗 Ver Video en YouTube](URL_DEL_VIDEO)
+[🔗 Ver Video en YouTube]([URL_DEL_VIDEO](https://youtu.be/n5GrQooqtYk))
 
 Este video muestra la interacción entre los microservicios `Product`, `Booking` y `Payment`, la comunicación vía Eureka Server, y las pruebas funcionales realizadas mediante Postman.
 
@@ -83,6 +85,7 @@ Este video muestra la interacción entre los microservicios `Product`, `Booking`
 - Maven 3.8+
 - MongoDB (en localhost:27017)
 - MySQL (con base de datos configurada y credenciales en application.properties)
+- IDE de Visual Studio Code con la extensión de Spring Boot Extension Pack.
 
 ---
 
@@ -91,7 +94,7 @@ Este video muestra la interacción entre los microservicios `Product`, `Booking`
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/usuario/nombre-del-repositorio.git
+git clone [https://github.com/usuario/nombre-del-repositorio](https://github.com/chartorresgg/microservices-architecture).git
 cd nombre-del-repositorio
 ```
 
@@ -120,6 +123,7 @@ http://localhost:8761
 - **Product-Microservice**
 
   - `GET /products`
+  - `GET /products/{id}`
   - `POST /products`
   - `PUT /products/{id}`
   - `DELETE /products/{id}`
@@ -127,12 +131,16 @@ http://localhost:8761
 - **Booking-Microservice**
 
   - `GET /bookings`
+  - `GET /bookings/{id}`
   - `POST /bookings`
+  - `PUT /bookings/{id}`
+  - `DELETE /bookings/{id}`
 
 - **Payment-Microservice**
 
   - `POST /payments`
   - `GET /payments/{bookingId}`
+  - `DELETE /payments/{id}`
 
 ---
 
@@ -162,7 +170,7 @@ Este proyecto es de propósito educativo. Si deseas contribuir o extender su fun
 
 ## 📅 Autor
 
-Desarrollado por \[Carlos Guzmán Torres y Dana Yuredt Castro] para el curso de Ingeniería de Software II con del Politécnico Gracnolombiano - 2025.
+Desarrollado por **Carlos Guzmán Torres y Dana Yuredt Castro** para el curso de Ingeniería de Software II con del Politécnico Gracnolombiano - 2025.
 
 ---
 
