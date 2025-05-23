@@ -6,18 +6,23 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "bookings")
+/**
+ * Booking entity class representing a booking record in the database.
+ * This class is annotated with JPA annotations to map it to the "bookings"
+ * table.
+ */
+@Entity // Indicates that this class is a JPA entity
+@Table(name = "bookings") // Specifies the name of the table in the database
 public class Booking {
 
     @Id
-    private String id;
-    private String userId;
-    private String productId;
-    private Integer quantity;
-    private Double price;
-    private Date bookingDate;
-    private String status;
+    private String id; // Unique identifier for the booking
+    private String userId; // ID of the user who made the booking
+    private String productId; // ID of the product being booked
+    private Integer quantity; // Quantity of the product being booked
+    private Double price; // Total price of the booking
+    private Date bookingDate; // Date when the booking was made
+    private String status; // Status of the booking (e.g., "confirmed", "cancelled")
 
     public String getId() {
         return id;

@@ -1,28 +1,50 @@
 package com.edu.poli.payment_microservice.payment_microservice.service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
 import com.edu.poli.payment_microservice.payment_microservice.client.BookingClient;
 import com.edu.poli.payment_microservice.payment_microservice.dto.PaymentRequest;
 import com.edu.poli.payment_microservice.payment_microservice.model.Payment;
 import com.edu.poli.payment_microservice.payment_microservice.repository.PaymentRepository;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
-import org.springframework.stereotype.Service;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.List;
 
+/**
+ * PaymentService class responsible for handling payment-related operations.
+ * It interacts with the PaymentRepository to perform CRUD operations
+ * and with the BookingClient
+ * to update booking status after payment processing.
+ */
 @Service
 public class PaymentService {
 
-    private final PaymentRepository paymentRepository;
-    private final BookingClient bookingClient;
+    private final PaymentRepository paymentRepository; // Repository for payment data
+    private final BookingClient bookingClient; // Client for booking service
 
+    /**
+     * Constructor for PaymentService.
+     *
+     * @param paymentRepository Repository for payment data
+     * @param bookingClient     Client for booking service
+     */
     public PaymentService(PaymentRepository paymentRepository, BookingClient bookingClient) {
         this.paymentRepository = paymentRepository;
         this.bookingClient = bookingClient;
     }
 
+
+    /**
+     * Processes a payment using Stripe's PaymentIntent API.
+     *
+     * @param request PaymentRequest object containing payment details
+     * @return PaymentIntent object representing the created payment intent
+     * @throws StripeException if there is an error processing the payment
+     */
     public PaymentIntent processPayment(PaymentRequest request) throws StripeException {
         Map<String, Object> params = new HashMap<>();
         params.put("amount", request.getAmount());
@@ -54,16 +76,47 @@ public class PaymentService {
         return paymentIntent;
     }
 
+    // ============================ CRUD Operations ============================
+    
+    /**
+     * Creates a new payment record in the database.
+     *
+     * @param payment Payment object to be saved
+     * @return The saved Payment object
+     */
     public List<Payment> getAllPayments() {
         return paymentRepository.findAll();
     }
 
+    /**
+     * Retrieves a payment record by its ID.
+     *
+     * @param id ID of the payment to be retrieved
+     * @return Optional containing the Payment object if found, otherwise empty
+     */
     public Optional<Payment> getPaymentById(Long id) {
         return paymentRepository.findById(id);
     }
 
+    /**
+     * Updates an existing payment record in the database.
+     *
+     * @param id      ID of the payment to be updated
+     * @param payment Payment object with updated details
+     * @return The updated Payment object
+     */
     public void deletePayment(Long id) {
         paymentRepository.deleteById(id);
     }
+
+    /**
+     * Deletes a payment record by its ID.
+     *
+     * @param id ID of the payment to be deleted
+     */
+    public void deletePaymentById(Long id) {
+        paymentRepository.deleteById(id);
+
+}
 
 }

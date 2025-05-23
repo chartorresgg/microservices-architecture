@@ -1,28 +1,47 @@
 package com.edu.poli.payment_microservice.payment_microservice.model;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "payment")
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+/**
+ * Payment entity class representing a payment record in the database.
+ * This class is annotated with JPA annotations to map it to the "payment"
+ * table.
+ */
+@Entity // Indicates that this class is a JPA entity
+@Table(name = "payment") // Specifies the name of the table in the database
 public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    private Long bookingId;
-    private Long amount;
-    private String currency;
-    private String paymentMethodId;
-    private String status;
+    private Long id; // Unique identifier for the payment
+    private Long bookingId; // ID of the booking associated with the payment
+    private Long amount; // Amount to be paid
+    private String currency; // Currency of the payment
+    private String paymentMethodId; // ID of the payment method to be used
+    private String status; // Status of the payment (e.g., "succeeded", "failed")
+    private LocalDateTime createdAt; // Timestamp of when the payment was created
 
-    private LocalDateTime createdAt;
-
+    // Default constructor
     public Payment() {
         this.createdAt = LocalDateTime.now();
     }
 
+    /**
+     * Constructor to create a Payment object with the specified parameters.
+     *
+     * @param bookingId       ID of the booking associated with the payment
+     * @param amount          Amount to be paid
+     * @param currency        Currency of the payment
+     * @param paymentMethodId ID of the payment method to be used
+     * @param status          Status of the payment
+     */
     public Payment(Long bookingId, Long amount, String currency, String paymentMethodId, String status) {
         this.bookingId = bookingId;
         this.amount = amount;
@@ -32,6 +51,7 @@ public class Payment {
         this.createdAt = LocalDateTime.now();
     }
 
+    // ============================ Getters and Setters ============================
     public Long getId() {
         return id;
     }

@@ -2,12 +2,30 @@
 
 Este repositorio contiene un sistema distribuido basado en **microservicios** desarrollado con **Spring Boot**, que permite gestionar productos, realizar reservas y procesar pagos, utilizando una arquitectura escalable y desacoplada. El proyecto fue diseñado como parte de un entorno educativo, simulando un sistema completo de reservas de productos.
 
+## 📖 Tabla de Contenidos
+
+- [✨ Características Principales](#-características-principales)
+- [🚀 Microservicios Implementados](#-microservicios-implementados)
+- [⚙️ Tecnologías Utilizadas](#️-tecnologías-utilizadas)
+- [📂 Estructura del Proyecto](#-estructura-del-proyecto)
+- [🎥 Video de Demostración](#-video-de-demostración)
+- [✅ Requisitos Previos](#-requisitos-previos)
+- [📚 Instalación y Ejecución](#-instalación-y-ejecución)
+- [🔧 Endpoints REST (Resumen)](#-endpoints-rest-resumen)
+- [📊 Pruebas Realizadas](#-pruebas-realizadas)
+- [🌟 Contribuciones](#-contribuciones)
+- [🚀 Futuras Mejoras](#-futuras-mejoras)
+- [📅 Autor](#-autor)
+- [🌐 Licencia](#-licencia)
+
+---
+
 ## ✨ Características Principales
 
 - Arquitectura basada en **microservicios**.
 - Registro y descubrimiento de servicios con **Eureka Server**.
 - Persistencia de datos con **MongoDB** y **MySQL**.
-- Integración con servicio de API externo de pagos simulado en Stripe: https://dashboard.stripe.com
+- Integración simulada con la API de pagos de **Stripe**: https://dashboard.stripe.com
 - Comunicación entre servicios mediante **REST APIs**.
 - Desplegado en entorno local usando **Java 17**, **Maven** y **Spring Boot**.
 
@@ -29,15 +47,15 @@ Este repositorio contiene un sistema distribuido basado en **microservicios** de
 ### 3. Booking-Microservice
 
 - **CRUD** de bookings/reservas de compra.
-- Validación de disponibilidad con **Product-Service:** Las órdenes son creadas, solamente si el id del producto existe.
+- Validación de disponibilidad con **Product-Service**: Las órdenes son creadas solamente si el ID del producto existe.
 - Persistencia en **MySQL**.
 
 ### 4. Payment-Microservice
 
-- Creación, consulta y eliminaación de pagos para reservas o bookings.
+- Creación, consulta y eliminación de pagos para reservas o bookings.
 - Persistencia en **MySQL**.
 - Conexión con la **API de pagos externa** de Stripe.
-- Validación del estado de transacciones: Una orden creada actualizará su status a "pagado" si el paymenta apunta a dicha orden.
+- Validación del estado de transacciones: una orden creada actualizará su estado a "pagado" si el pago apunta a dicha orden.
 
 ---
 
@@ -52,15 +70,15 @@ Este repositorio contiene un sistema distribuido basado en **microservicios** de
 | Gestor de dependencias | Maven                             |
 | Control de versiones   | Git                               |
 | IDE                    | Visual Studio Code                |
-  
+
 ---
 
-## 📂 Estructura del Proyecto
+## 📂 Estructura del Proyect
 
 ```
 project-root/
 ├── discovery-service/
-├── doc
+├── doc/
 ├── product-microservice/
 ├── booking-microservice/
 ├── payment-microservice/
@@ -72,7 +90,8 @@ project-root/
 
 🎥 Video de Demostración
 
-Puedes ver el funcionamiento del sistema distribuido basado en microservicios en el siguiente video: https://www.youtube.com/watch?v=n5GrQooqtYk
+Puedes ver el funcionamiento del sistema distribuido basado en microservicios en el siguiente video:  
+https://www.youtube.com/watch?v=n5GrQooqtYk
 
 Este video muestra la interacción entre los microservicios `Product`, `Booking` y `Payment`, la comunicación vía Eureka Server, y las pruebas funcionales realizadas mediante Postman.
 
@@ -93,8 +112,8 @@ Este video muestra la interacción entre los microservicios `Product`, `Booking`
 1. Clona el repositorio:
 
 ```bash
-git clone [https://github.com/usuario/nombre-del-repositorio](https://github.com/chartorresgg/microservices-architecture).git
-cd nombre-del-repositorio
+git clone https://github.com/chartorresgg/microservices-architecture.git
+cd microservices-architecture
 ```
 
 2. Inicia la base de datos MongoDB y MySQL en tu equipo.
@@ -169,7 +188,7 @@ Este proyecto es de propósito educativo. Si deseas contribuir o extender su fun
 
 ## 📅 Autor
 
-Desarrollado por **Carlos Guzmán Torres y Dana Yuredt Castro** para el curso de Ingeniería de Software II con del Politécnico Gracnolombiano - 2025.
+Desarrollado por **Carlos Guzmán Torres y Dana Yuredt Castro** para el curso de Ingeniería de Software II del Politécnico Grancolombiano - 2025.
 
 ---
 

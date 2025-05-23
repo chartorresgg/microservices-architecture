@@ -5,6 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * Main application class for the Booking Microservice.
+ * This class serves as the entry point for the Spring Boot application.
+ */
 @SpringBootApplication
 public class BookingMicroserviceApplication {
 
